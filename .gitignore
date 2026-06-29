@@ -28,3 +28,4 @@ temp_image.jpg
 # En caso de que se suban modelos muy grandes, aunque este es de 7MB.
 # *.keras
 # *.h5
+/data
