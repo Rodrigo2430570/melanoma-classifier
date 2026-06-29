@@ -1,4 +1,4 @@
-# API Melanoma Classifier
+# Melanoma Classifier
 
 Este proyecto es una API construida con Flask y TensorFlow/Keras para clasificar imágenes de lesiones en la piel como **Malignas** o **Benignas** (melanoma). También proporciona una interfaz web simple para cargar la imagen y recibir el diagnóstico.
 
@@ -27,7 +27,12 @@ Este proyecto es una API construida con Flask y TensorFlow/Keras para clasificar
    ```bash
    pip install -r requirements.txt
    ```
-   *(Nota: Asegúrate de tener instalados `flask`, `tensorflow`, `numpy`, y cualquier otra librería requerida por el modelo y el script).*
+   *(Nota: Asegúrate de tener instalados `flask`, `tensorflow`, `numpy`, `dvc` y cualquier otra librería requerida por el modelo).*
+5. Descarga el dataset de imágenes usando DVC:
+   ```bash
+   dvc pull
+   ```
+   *(Nota: Asegúrate de configurar primero tu almacenamiento remoto de DVC, por ejemplo con Google Drive).*
 
 ## Uso
 
@@ -71,10 +76,10 @@ Ejecuta la rutina de entrenamiento del modelo.
 
 - `api_melanoma_classifier.py`: Archivo principal que define la API de Flask y sus rutas.
 - `20260621_melanoma_cnn_classifier.keras`: Modelo pre-entrenado de TensorFlow/Keras.
-- `src/`: Contiene el código fuente adicional (ej. lógica de entrenamiento).
-- `static/`: Archivos estáticos como CSS, JavaScript y posibles imágenes.
+- `src/`: Contiene el código fuente adicional.
+- `static/`: Archivos estáticos como CSS, JavaScript.
 - `templates/`: Plantillas HTML (como `index.html`).
-- `data/`: Directorio donde probablemente se encuentren las imágenes para entrenamiento.
+- `data/`: Directorio donde se encuentra el dataset de imágenes ISIC con subcarpetas /test, /train y /validation, cada una con subcarpetas benigna y maligna.
 
 ## Notas Adicionales
 El modelo requiere que las imágenes de entrada se redimensionen a 64x64 píxeles antes de hacer la predicción, y está normalizado dividiendo los valores de los píxeles entre 255. Esto se realiza automáticamente dentro de la ruta `/predict`.

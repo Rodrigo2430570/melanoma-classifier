@@ -1,0 +1,8 @@
+tensorflow
+numpy
+scikit-learn
+matplotlib
+seaborn
+dvc[gdrive]
+mlflow
+tensorboard
