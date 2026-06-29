@@ -1,0 +1,30 @@
+# Entornos virtuales
+env/
+venv/
+.env
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# MLflow
+mlruns/
+mlflow.db
+
+# Temporales de Flask
+instance/
+.webassets-cache
+
+# Archivos generados
+temp_image.jpg
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# En caso de que se suban modelos muy grandes, aunque este es de 7MB.
+# *.keras
+# *.h5

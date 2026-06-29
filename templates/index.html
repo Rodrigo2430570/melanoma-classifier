@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Clasificador de Melanoma</title>
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Librería para hacer gráficas -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Clasificador de melanoma</h1>
+        <p>Sube una imagen para obtener el análisis.</p>
+
+        <!-- Formulario sencillo para subir la imagen -->
+        <form id="upload-form">
+            <input type="file" id="image-input" name="image" accept="image/jpeg, image/png, image/jpg">
+            <br><br>
+            <button type="submit">Analizar imagen</button>
+        </form>
+
+        <div id="preview-container" style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+            <!-- Contenedor para la imagen con overflow auto para permitir paneo (arrastrar) -->
+            <div id="image-wrapper" style="overflow: auto; max-width: 500px; max-height: 400px; border-radius: 8px; display: none;">
+                <img id="preview" src="#" alt="Vista previa de la imagen" style="width: 100%; transition: width 0.2s ease; display: block;">
+            </div>
+
+            <!-- Controles de zoom (movidos debajo de la imagen) -->
+            <div id="zoom-controls" style="display: none; margin-top: 15px;">
+                <button type="button" id="zoom-in" style="padding: 5px 15px; margin-right: 10px;">Acercar (+)</button>
+                <button type="button" id="zoom-out" style="padding: 5px 15px;">Alejar (-)</button>
+            </div>
+        </div>
+        <p id="error-message" style="color: red; display: none;"></p>
+
+        <!-- Sección de resultados que se encuentra oculta -->
+        <div id="results-section" style="display: none;">
+            <h2>Resultados del análisis</h2>
+            <p>Predicción: <strong id="pred-class"></strong></p>
+            <p>Probabilidad de certeza: <strong id="pred-prob"></strong></p>
+
+            <!-- Aquí se dibuja la gráfica -->
+            <div style="height: 300px;">
+                <canvas id="probabilityChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de lógica -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
