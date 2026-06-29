@@ -4,7 +4,7 @@ Este proyecto es una API construida con Flask y TensorFlow/Keras para clasificar
 
 ## Requisitos
 
-- Python 3.8 o superior
+- Python 3.11
 - Se recomienda usar un entorno virtual
 
 ## Instalación
@@ -23,16 +23,15 @@ Este proyecto es una API construida con Flask y TensorFlow/Keras para clasificar
      ```bash
      source env/bin/activate
      ```
-4. Instala las dependencias necesarias. Si tienes un archivo `requirements.txt`, ejecuta:
+4. Instala las dependencias necesarias. Ejecuta:
    ```bash
    pip install -r requirements.txt
    ```
-   *(Nota: Asegúrate de tener instalados `flask`, `tensorflow`, `numpy`, `dvc` y cualquier otra librería requerida por el modelo).*
 5. Descarga el dataset de imágenes usando DVC:
    ```bash
    dvc pull
    ```
-   *(Nota: Asegúrate de configurar primero tu almacenamiento remoto de DVC, por ejemplo con Google Drive).*
+   *(Nota: Asegúrate de configurar primero tu almacenamiento remoto de DVC con Google Drive).*
 
 ## Uso
 
@@ -80,6 +79,3 @@ Ejecuta la rutina de entrenamiento del modelo.
 - `static/`: Archivos estáticos como CSS, JavaScript.
 - `templates/`: Plantillas HTML (como `index.html`).
 - `data/`: Directorio donde se encuentra el dataset de imágenes ISIC con subcarpetas /test, /train y /validation, cada una con subcarpetas benigna y maligna.
-
-## Notas Adicionales
-El modelo requiere que las imágenes de entrada se redimensionen a 64x64 píxeles antes de hacer la predicción, y está normalizado dividiendo los valores de los píxeles entre 255. Esto se realiza automáticamente dentro de la ruta `/predict`.
