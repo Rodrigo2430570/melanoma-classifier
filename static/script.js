@@ -1,6 +1,6 @@
 // Variable para guardar la gráfica y poder borrarla si suben otra imagen
 let grafica = null;
-let nivelZoom = 100; // Variable para controlar el nivel de zoom de la imagen en porcentaje
+let nivelZoom = 100; // Variable para controlar el nivel de zoom de la imagen
 
 // Previsualizar imagen apenas se selecciona
 document.getElementById('image-input').addEventListener('change', function (event) {
